@@ -8,29 +8,37 @@
 "use strict";
 const PROMPT = require('readline-sync');
 
-let movieTitles = [], starRatings = [], totalStarRatings = [], numCounter = [];
-let continueResponse;
 let movies = [];
+let avgRating,whichTask, movieChoice;
+
 function main() {
+    const INFINITE = 0, NO_MOVIES = 1
     process.stdout.write('\x1Bc'); //Clears the screen
     setContinueResponse();
-    while (continueResponse = 1){
-        populateMovies();
-    }
-}
+    while (INFINITE = INFINITE){
+        if (movies.length < NO_MOVIES){
+            populateMovies();
+        } else {
+            setWhichTask();
 
-function setContinueResponse() {
-    if (continueResponse) {
-        continueResponse = -1;
-        while (continueResponse !== 0 && continueResponse !== 1) {
-            continueResponse = Number(PROMPT.question(`\nDo you want to continue? [0=no, 1=yes]: `));
         }
-    } else {
-        continueResponse = 1;
     }
 }
 
 function populateMovies() {
     process.stdout.write('\x1Bc'); //Clears the screen
     movies[i] = [];
+
+}
+
+function setWhichTask() {
+
+}
+
+function setAvgRating() {
+
+}
+
+function setRatingMovieChoice() {
+
 }
