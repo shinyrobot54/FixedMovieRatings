@@ -26,19 +26,21 @@ function main() {
 }
 
 function populateMovies() {
-    process.stdout.write('\x1Bc'); //Clears the screen
-    movies[i] = [];
-
+    const MOVIE_TITLE = 0, MOVIE_RATING = 1, TOTAL_RATING = 2, NUM_OF_RATINGS = 3, COLUMNS = 4;
+    
 }
 
 function setWhichTask() {
-
+    const VIEW = 0, RATE = 1;
+    while (typeof whichTask == null || isNan(whichTask) || whichTask !== VIEW || whichTask !== RATE){
+        whichTask = PROMPT.question('\nWould you like to view the average rating of a movie or rate a movie?\nTo view an average rating type "0"\nTo rate a movie type "1"');
+    }
 }
 
 function setAvgRating() {
-
+    avgRating =
 }
 
-function setRatingMovieChoice() {
+function setMovieChoice() {
 
 }
