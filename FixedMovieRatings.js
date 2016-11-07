@@ -26,8 +26,26 @@ function main() {
 }
 
 function populateMovies() {
-    const MOVIE_TITLE = 0, MOVIE_RATING = 1, TOTAL_RATING = 2, NUM_OF_RATINGS = 3, COLUMNS = 4;
-    
+    const NO_MOVIES = 0, MOVIE_TITLE = 0, MOVIE_RATING = 1, TOTAL_RATING = 2, NUM_OF_RATINGS = 3, COLUMNS = 4;
+    if (movies.length != NO_MOVIES){
+        for(let i = 0; i < movies.length; i++){
+            
+
+        }
+    } else {
+        movies[0] = [];
+        for (let i = 0; i < COLUMNS; i++){
+            if (i === MOVIE_TITLE){
+                movies[0][i] = PROMPT.question('\nPlease enter the new movie title');
+            } else if (i === MOVIE_RATING){
+                movies[0][i] = PROMPT.question('\nPlease enter your rating of ${movies[0][0]}');
+            } else if (i === TOTAL_RATING){
+                movies[0][i] = movies[0][1];
+            } else { //NUM_OF_RATING
+                movies[0][i] = 1
+            }
+        }
+    }
 }
 
 function setWhichTask() {
@@ -38,7 +56,7 @@ function setWhichTask() {
 }
 
 function setAvgRating() {
-    avgRating =
+    
 }
 
 function setMovieChoice() {
