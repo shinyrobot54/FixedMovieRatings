@@ -27,10 +27,11 @@ function main() {
 
 function populateMovies() {
     const NO_MOVIES = 0, MOVIE_TITLE = 0, MOVIE_RATING = 1, TOTAL_RATING = 2, NUM_OF_RATINGS = 3, COLUMNS = 4;
+    let newTitle;
     if (movies.length != NO_MOVIES){
         for(let i = 0; i < movies.length; i++){
-            
-
+            console.log('\n${i} {movies[i][0]');
+            newTitle = i + 1;
         }
     } else {
         movies[0] = [];
