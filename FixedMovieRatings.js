@@ -10,6 +10,7 @@ const PROMPT = require('readline-sync');
 
 let movies = [];
 let avgRating,whichTask, whichMovie;
+const MOVIE_TITLE = 0, MOVIE_RATING = 1, TOTAL_RATING = 2, NUM_OF_RATINGS = 3, COLUMNS = 4;
 
 function main() {
     const INFINITE = 0, NO_MOVIES = 0, VIEW = 0, RATE = 1;
@@ -39,7 +40,7 @@ function displayMovieTitles(){
 }
 
 function populateMovies() {
-    const NO_MOVIES = 0, MOVIE_TITLE = 0, MOVIE_RATING = 1, TOTAL_RATING = 2, NUM_OF_RATINGS = 3, COLUMNS = 4;
+    const NO_MOVIES = 0;
     let newTitle;
     if (movies.length != NO_MOVIES){
         console.log('populate movies if');
@@ -74,10 +75,10 @@ function setWhichTask() {
 }
 
 function setAvgRating() {
-    
+    avgRating = Number(movies[whichMovie][TOTAL_RATING] / movies[whichMovie][NUM_OF_RATINGS]);
 }
 
 function setWhichMovie() {
     displayMovieTitles();
-    whichMovie =
+    whichMovie = PROPMT.question()
 }
