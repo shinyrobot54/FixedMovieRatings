@@ -45,6 +45,12 @@ function populateMovies() {
     if (movies.length != NO_MOVIES){
         console.log('populate movies if');
         displayMovieTitles();
+        setWhichMovie();
+        if (whichMovie !== movie.length){
+
+        } else {
+
+        }
     } else {
         console.log('populatemovies else');
         movies[0] = [];
@@ -80,5 +86,6 @@ function setAvgRating() {
 
 function setWhichMovie() {
     displayMovieTitles();
-    whichMovie = PROPMT.question()
+    console.log(movie.length + ' = New Movie');
+    whichMovie = PROPMT.question('Please enter the number associated with your choice: ')
 }
