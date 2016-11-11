@@ -9,7 +9,7 @@
 const PROMPT = require('readline-sync');
 
 let movies = [];
-let avgRating,whichTask, whichMovie;
+let avgRating,whichTask, whichMovie, newTitle;
 const MOVIE_TITLE = 0, MOVIE_RATING = 1, TOTAL_RATING = 2, NUM_OF_RATINGS = 3, COLUMNS = 4;
 
 function main() {
@@ -31,9 +31,9 @@ function main() {
 }
 
 main();
-//@todo
 
 function displayMovieTitles(){
+    console.log('displayMovieTitles');
     for(let i = 0; i < movies.length; i++){
         console.log('\n' + i + ' = ' + movies[i][0] + '');
     }
@@ -41,15 +41,34 @@ function displayMovieTitles(){
 
 function populateMovies() {
     const NO_MOVIES = 0;
-    let newTitle;
     if (movies.length != NO_MOVIES){
         console.log('populate movies if');
         displayMovieTitles();
         setWhichMovie();
-        if (whichMovie !== movie.length){
-
+        if (whichMovie !== newTitle){
+            console.log('User selected a movie on the list');
+            for (let i = 0; i <COLUMNS; i++) {
+                if (i === MOVIE_RATING) {
+                    movies[whichMovie][i] = PROMPT.question('\nPlease enter your rating of ' + movies[0][0] + ': ');
+                } else if (i === TOTAL_RATING) {
+                    movies[whichMovie] [i] = movies[0][1];
+                } else { //NUM_OF_RATING
+                    movies[whichMovie][i] = 1
+                }
+            }
         } else {
-
+            console.log('Selected a new movie to rate')
+            for (let i = 0; i <COLUMNS; i++) {
+                if (i === MOVIE_TITLE) {
+                    movies[newTitle][i] = PROMPT.question('\nPlease enter the new movie title: ');
+                } else if (i === MOVIE_RATING) {
+                    movies[newTitle][i] = PROMPT.question('\nPlease enter your rating of ' + movies[0][0] + ': ');
+                } else if (i === TOTAL_RATING) {
+                    movies[newTitle][i] = movies[0][1];
+                } else { //NUM_OF_RATING
+                    movies[newTitle][i] = 1
+                }
+            }
         }
     } else {
         console.log('populatemovies else');
@@ -81,11 +100,15 @@ function setWhichTask() {
 }
 
 function setAvgRating() {
+    console.log('setAvgRating');
     avgRating = Number(movies[whichMovie][TOTAL_RATING] / movies[whichMovie][NUM_OF_RATINGS]);
 }
 
 function setWhichMovie() {
+    console.log('top of setWhichMovie');
     displayMovieTitles();
-    console.log(movie.length + ' = New Movie');
+    newTitle = movies.length;
+    console.log(newTitle + ' = New Movie');
     whichMovie = PROPMT.question('Please enter the number associated with your choice: ')
 }
+
