@@ -22,6 +22,8 @@ function main() {
                 populateMovies();
             } else {
                 setWhichMovie();
+                setAvgRating()
+                printMovieRating();
             }
         } else {
             populateMovies();
@@ -112,3 +114,6 @@ function setWhichMovie() {
     whichMovie = PROPMT.question('Please enter the number associated with your choice: ')
 }
 
+function printMovieRating() {
+    console.log(`\n${movies[whichMovie][MOVIE_TITLE]} has an average rating of ${avgRating}.`);
+}
