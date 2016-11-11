@@ -22,7 +22,7 @@ function main() {
                 populateMovies();
             } else {
                 setWhichMovie();
-                setAvgRating()
+                setAvgRating();
                 printMovieRating();
             }
         } else {
@@ -55,11 +55,11 @@ function populateMovies() {
                 } else if (i === TOTAL_RATING) {
                     movies[whichMovie] [i] = movies[0][1];
                 } else { //NUM_OF_RATING
-                    movies[whichMovie][i] = 1
+                    movies[whichMovie][i] = movies[newTitle][i] + 1;
                 }
             }
         } else {
-            console.log('Selected a new movie to rate')
+            console.log('Selected a new movie to rate');
             for (let i = 0; i <COLUMNS; i++) {
                 if (i === MOVIE_TITLE) {
                     movies[newTitle][i] = PROMPT.question('\nPlease enter the new movie title: ');
@@ -68,7 +68,11 @@ function populateMovies() {
                 } else if (i === TOTAL_RATING) {
                     movies[newTitle][i] = movies[0][1];
                 } else { //NUM_OF_RATING
-                    movies[newTitle][i] = 1
+                    if (typeof movies[newTitle][i] !== 'undefined'){
+                        movies[newTitle][i] =  movies[newTitle][i] + 1;
+                    } else {
+                        movies[newTitle][i] = 1;
+                    }
                 }
             }
         }
@@ -83,7 +87,7 @@ function populateMovies() {
             } else if (i === TOTAL_RATING){
                 movies[0][i] = movies[0][1];
             } else { //NUM_OF_RATING
-                movies[0][i] = 1
+                movies[0][i] = 1;
             }
         }
     }
@@ -92,7 +96,7 @@ function populateMovies() {
 function setWhichTask() {
     console.log('top of setwhichtask');
     const VIEW = 0, RATE = 1;
-    while (whichTask == null || isNaN(whichTask) || whichTask !== VIEW || whichTask !== RATE){
+    while (typeof whichTask === 'undefined' || isNaN(whichTask) || whichTask !== VIEW || whichTask !== RATE){
         console.log('setwhichtask while loop');
         whichTask = PROMPT.question('\nWould you like to view the average rating of a movie or rate a movie?' +
             '\nTo view an average rating type "0"' +
@@ -111,7 +115,7 @@ function setWhichMovie() {
     displayMovieTitles();
     newTitle = movies.length;
     console.log(newTitle + ' = New Movie');
-    whichMovie = PROPMT.question('Please enter the number associated with your choice: ')
+    whichMovie = PROPMT.question('Please enter the number associated with your choice: ');
 }
 
 function printMovieRating() {
