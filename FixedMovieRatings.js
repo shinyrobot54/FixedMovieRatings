@@ -96,18 +96,18 @@ function populateMovies() {
 function setWhichTask() {
     console.log('top of setwhichtask');
     const VIEW = 0, RATE = 1;
-    while (typeof whichTask === 'undefined' || isNaN(whichTask) || whichTask !== VIEW || whichTask !== RATE){
+    //while (typeof whichTask === 'undefined' || isNaN(whichTask) || whichTask !== VIEW && whichTask !== RATE){
         console.log('setwhichtask while loop');
         whichTask = PROMPT.question('\nWould you like to view the average rating of a movie or rate a movie?' +
-            '\nTo view an average rating type "0"' +
-            '\nTo rate a movie type "1"' +
+            '\nTo view an average rating type, "0"' +
+            '\nTo rate a movie type, "1"' +
             '\n');
-    }
+    //}
 }
 
 function setAvgRating() {
     console.log('setAvgRating');
-    avgRating = Number(movies[whichMovie][TOTAL_RATING] / movies[whichMovie][NUM_OF_RATINGS]);
+    avgRating = Number(movies[whichMovie] [2] / movies[whichMovie] [3]);
 }
 
 function setWhichMovie() {
@@ -115,7 +115,7 @@ function setWhichMovie() {
     displayMovieTitles();
     newTitle = movies.length;
     console.log(newTitle + ' = New Movie');
-    whichMovie = PROPMT.question('Please enter the number associated with your choice: ');
+    whichMovie = PROMPT.question('Please enter the number associated with your choice: ');
 }
 
 function printMovieRating() {
